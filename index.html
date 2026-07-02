@@ -134,8 +134,35 @@
       color: var(--muted);
     }
 
-    .nav a:hover {
+    .nav a {
+      position: relative;
+      padding: 8px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a.is-active {
       color: var(--ink);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), #58c79e);
+      opacity: 0;
+      transform: scaleX(0.2);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav a.is-active::after,
+    .nav a:hover::after {
+      opacity: 1;
+      transform: scaleX(1);
     }
 
     .hero {
@@ -198,8 +225,13 @@
 
     h1 {
       margin-top: 22px;
-      font-size: clamp(40px, 6vw, 72px);
-      max-width: 11ch;
+      font-size: clamp(40px, 5.4vw, 68px);
+      max-width: 8.5ch;
+      text-wrap: balance;
+    }
+
+    .title-accent {
+      color: var(--accent-deep);
     }
 
     .hero-copy p {
@@ -278,6 +310,47 @@
       align-content: start;
     }
 
+    .plan-switcher {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .plan-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.68);
+      color: var(--ink);
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .plan-chip:hover {
+      transform: translateY(-2px);
+      border-color: rgba(12, 109, 82, 0.22);
+    }
+
+    .plan-chip.is-active {
+      background: rgba(15, 157, 116, 0.1);
+      border-color: rgba(12, 109, 82, 0.38);
+      box-shadow: inset 0 0 0 1px rgba(15, 157, 116, 0.14);
+    }
+
+    .plan-chip span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
     .panel-head {
       display: flex;
       align-items: baseline;
@@ -321,6 +394,58 @@
       font-weight: 700;
     }
 
+    .recommend-card {
+      border-radius: 26px;
+      padding: 22px;
+      background: linear-gradient(180deg, rgba(20, 33, 47, 0.96), rgba(20, 33, 47, 0.88));
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .recommend-card h3 {
+      font-size: 28px;
+      color: #ffffff;
+    }
+
+    .recommend-meta {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .recommend-meta div {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .recommend-meta strong {
+      display: block;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 12px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .recommend-meta span {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .recommend-copy {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+    }
+
+    .mini-note {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
     section {
       padding: 34px 0;
     }
@@ -342,13 +467,45 @@
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
     .card {
       border-radius: var(--radius-xl);
       padding: 24px;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(12, 109, 82, 0.2);
+    }
+
+    .card.is-active {
+      border-color: rgba(12, 109, 82, 0.38);
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 26px 56px rgba(15, 109, 82, 0.16);
+    }
+
+    .card-badge {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 157, 116, 0.12);
+      color: var(--accent-deep);
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .card.is-active .card-badge {
+      opacity: 1;
     }
 
     .card-tag {
@@ -438,6 +595,15 @@
       background: rgba(20, 33, 47, 0.03);
     }
 
+    tbody tr {
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    tbody tr.is-active {
+      background: rgba(15, 157, 116, 0.09);
+      box-shadow: inset 4px 0 0 rgba(12, 109, 82, 0.75);
+    }
+
     .decision-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -449,6 +615,17 @@
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.66);
       padding: 22px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .decision:hover {
+      transform: translateY(-2px);
+    }
+
+    .decision.is-active {
+      border-color: rgba(12, 109, 82, 0.38);
+      background: rgba(15, 157, 116, 0.09);
     }
 
     .decision strong {
@@ -488,6 +665,11 @@
     .faq-item {
       border-radius: var(--radius-lg);
       overflow: hidden;
+    }
+
+    .faq-item.is-active {
+      border-color: rgba(12, 109, 82, 0.38);
+      box-shadow: 0 18px 36px rgba(15, 109, 82, 0.1);
     }
 
     details {
@@ -540,6 +722,19 @@
       color: var(--muted);
     }
 
+    .cta-summary {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(15, 157, 116, 0.08);
+      color: var(--accent-deep);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     footer {
       padding: 10px 0 56px;
     }
@@ -574,11 +769,15 @@
 
     @media (max-width: 980px) {
       .hero-grid,
-      .card-grid,
       .decision-grid,
       .cta-band,
       .footer-grid {
         grid-template-columns: 1fr;
+      }
+
+      .card-grid,
+      .plan-switcher {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .hero-meta {
@@ -602,6 +801,11 @@
         font-size: 13px;
       }
 
+      h1 {
+        max-width: none;
+        font-size: clamp(36px, 12vw, 56px);
+      }
+
       .hero {
         padding-top: 42px;
       }
@@ -620,6 +824,12 @@
 
       .matrix {
         overflow-x: auto;
+      }
+
+      .plan-switcher,
+      .card-grid,
+      .recommend-meta {
+        grid-template-columns: 1fr;
       }
 
       table {
@@ -690,13 +900,31 @@
       <div class="shell hero-grid">
         <article class="hero-copy">
           <span class="eyebrow">GitHub Pages 差异化版本 · 更适合长尾承接</span>
-          <h1>ChatGPT Plus 购买、合租、代充，到底怎么选更稳？</h1>
+          <h1>ChatGPT Plus 购买，<span class="title-accent">独享、合租还是代充</span>，到底怎么选更稳？</h1>
           <p>
             这不是一个“只想让你立刻跳走”的桥页，而是一份适合搜索用户快速读懂的简版决策页。
             如果你只想弄清楚预算、稳定性、隐私和风险差异，这一页就够看；如果你想看更完整的渠道与教程，再去主站继续。
           </p>
+          <div class="plan-switcher" aria-label="需求快捷选择">
+            <button class="plan-chip is-active" type="button" data-plan-trigger="owned">
+              <strong>我要稳定开工</strong>
+              <span>适合独享现号</span>
+            </button>
+            <button class="plan-chip" type="button" data-plan-trigger="shared">
+              <strong>我先低成本试用</strong>
+              <span>优先看合租共享</span>
+            </button>
+            <button class="plan-chip" type="button" data-plan-trigger="topup">
+              <strong>我要保留老账号</strong>
+              <span>直接看老号代充</span>
+            </button>
+            <button class="plan-chip" type="button" data-plan-trigger="lite">
+              <strong>我只是轻度使用</strong>
+              <span>可以先看轻量版</span>
+            </button>
+          </div>
           <div class="button-row">
-            <a class="button button-primary" href="#compare">先看方案差异</a>
+            <a class="button button-primary" href="#compare" data-role="primary-jump">先看方案差异</a>
             <a
               class="button button-secondary"
               href="https://aiprostation.com/chatgpt-upgrade?from=github-pages-hero"
@@ -723,24 +951,44 @@
         <aside class="hero-panel" aria-label="页面策略摘要">
           <div class="panel-head">
             <div>
-              <div class="strip">建议打法</div>
-              <h2 style="margin-top: 14px; font-size: 34px;">先解决问题，再承接跳转</h2>
+              <div class="strip">当前推荐</div>
+              <h2 style="margin-top: 14px; font-size: 34px;">先选需求，再看最适合你的路线</h2>
             </div>
             <small>2026 版</small>
           </div>
-          <div class="signal-card">
-            <strong>1. 不做主站镜像</strong>
-            <p>标题、结构、FAQ 和推荐逻辑都要重新写，避免和主站正文高度重复。</p>
+          <div class="recommend-card">
+            <div class="strip" id="current-plan-label">默认推荐</div>
+            <h3 id="current-plan-title" style="margin-top: 14px;">独享现号</h3>
+            <p class="recommend-copy" id="current-plan-copy">适合希望拿到就用、直接进入工作状态的人群，稳定性和隐私通常更强。</p>
+            <div class="recommend-meta">
+              <div>
+                <strong>预算区间</strong>
+                <span id="current-plan-price">¥160-220 / 月</span>
+              </div>
+              <div>
+                <strong>核心关键词</strong>
+                <span id="current-plan-keyword">稳定、独享、少折腾</span>
+              </div>
+            </div>
+            <div class="button-row" style="margin-top: 18px;">
+              <a
+                class="button button-primary"
+                id="current-plan-link"
+                href="https://aiprostation.com/chatgpt-upgrade?from=github-pages-owned"
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+              >查看当前推荐方案</a>
+            </div>
           </div>
           <div class="signal-card">
-            <strong>2. 不堆很多外跳按钮</strong>
-            <p>保留 2 到 3 个明确 CTA 即可，让页面本身具备独立阅读价值。</p>
+            <strong>主流前端常见设计</strong>
+            <p>让首屏选择器、方案卡片、对比表、CTA 和 FAQ 共用同一个当前状态，而不是每个模块各自独立。</p>
           </div>
           <div class="signal-card">
-            <strong>3. 不把中转页当排名页</strong>
-            <p>真正参与排名的是内容页；跳转、中转、联盟承接都应放在后链路处理。</p>
+            <strong>为什么这种联动更顺</strong>
+            <p>用户点一次“我是这类需求”，页面其他区域会一起响应，不用自己在长页面里重新寻找答案。</p>
           </div>
-          <div class="muted-box">
+          <div class="muted-box" id="current-plan-note">
             你发布到 GitHub Pages 后，记得把本页中的 `yourname.github.io` 和主站链接参数换成你自己的实际地址。
           </div>
         </aside>
@@ -758,7 +1006,8 @@
         </div>
 
         <div class="card-grid">
-          <article class="card">
+          <article class="card is-active" tabindex="0" data-plan-card="owned">
+            <span class="card-badge">当前推荐</span>
             <span class="card-tag">方案 A</span>
             <h3>独享现号</h3>
             <div class="price">¥160-220 <small>/ 月常见区间</small></div>
@@ -769,7 +1018,8 @@
             </ul>
           </article>
 
-          <article class="card">
+          <article class="card" tabindex="0" data-plan-card="shared">
+            <span class="card-badge">当前推荐</span>
             <span class="card-tag">方案 B</span>
             <h3>合租共享</h3>
             <div class="price">¥40-80 <small>/ 月常见区间</small></div>
@@ -780,7 +1030,8 @@
             </ul>
           </article>
 
-          <article class="card">
+          <article class="card" tabindex="0" data-plan-card="topup">
+            <span class="card-badge">当前推荐</span>
             <span class="card-tag">方案 C</span>
             <h3>老号代充</h3>
             <div class="price">¥130-180 <small>/ 次常见区间</small></div>
@@ -788,6 +1039,18 @@
               <li>适合已有老账号、想保留记录的人</li>
               <li>对原有数据和工作流更友好</li>
               <li>要确认支付方式和网络环境是否规范</li>
+            </ul>
+          </article>
+
+          <article class="card" tabindex="0" data-plan-card="lite">
+            <span class="card-badge">当前推荐</span>
+            <span class="card-tag">方案 D</span>
+            <h3>轻量版方案</h3>
+            <div class="price">¥50-90 <small>/ 月常见区间</small></div>
+            <ul class="list">
+              <li>适合轻度提问、日常办公和低频使用</li>
+              <li>预算更克制，门槛更低</li>
+              <li>不适合特别依赖高级模型和重度场景</li>
             </ul>
           </article>
         </div>
@@ -809,7 +1072,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr class="is-active" data-plan-row="owned">
                 <td><strong>独享现号</strong></td>
                 <td>想省时间、直接开工的高频用户</td>
                 <td>中高</td>
@@ -817,7 +1080,7 @@
                 <td>高</td>
                 <td>来源不明、售后不稳、交付规则模糊</td>
               </tr>
-              <tr>
+              <tr data-plan-row="shared">
                 <td><strong>合租共享</strong></td>
                 <td>预算有限、先试用再决定的人</td>
                 <td>低</td>
@@ -825,7 +1088,7 @@
                 <td>低</td>
                 <td>记录共享、额度冲突、风控环境混杂</td>
               </tr>
-              <tr>
+              <tr data-plan-row="topup">
                 <td><strong>老号代充</strong></td>
                 <td>已经有账号、重视记录与 GPT 配置的人</td>
                 <td>中</td>
@@ -833,7 +1096,7 @@
                 <td>高</td>
                 <td>支付合规性、异地环境、异常登录提醒</td>
               </tr>
-              <tr>
+              <tr data-plan-row="lite">
                 <td><strong>轻量版方案</strong></td>
                 <td>轻度提问、日常办公、想压低月成本的人</td>
                 <td>低中</td>
@@ -858,19 +1121,19 @@
         </div>
 
         <div class="decision-grid">
-          <article class="decision">
+          <article class="decision" tabindex="0" data-plan-decision="shared">
             <strong>我想最便宜先用起来</strong>
             <p>优先考虑合租共享或轻量版。核心不是追求最低价，而是确认共享限制、是否允许改密、是否有售后兜底。</p>
           </article>
-          <article class="decision">
+          <article class="decision is-active" tabindex="0" data-plan-decision="owned">
             <strong>我需要长期稳定办公</strong>
             <p>优先考虑独享现号或老号代充。比起便宜几块钱，更重要的是交付来源、支付合规性和售后时效。</p>
           </article>
-          <article class="decision">
+          <article class="decision" tabindex="0" data-plan-decision="topup">
             <strong>我担心聊天记录和 GPT 配置</strong>
             <p>直接排除合租。你的核心需求是“保留原有工作流”，那老号代充通常比重买一个号更顺手。</p>
           </article>
-          <article class="decision">
+          <article class="decision" tabindex="0" data-plan-decision="lite">
             <strong>我只是偶尔用一下</strong>
             <p>可以先从低门槛方案试水，不要一开始就追求最高配。确定频率、网络和使用习惯后再升级更划算。</p>
           </article>
@@ -898,7 +1161,7 @@
         </div>
 
         <div class="faq-wrap">
-          <div class="faq-item">
+          <div class="faq-item" data-plan-faq="owned">
             <details open>
               <summary>GitHub Pages 的单页真的能做 SEO 吗？</summary>
               <div class="faq-content">
@@ -906,7 +1169,7 @@
               </div>
             </details>
           </div>
-          <div class="faq-item">
+          <div class="faq-item" data-plan-faq="shared">
             <details>
               <summary>为什么这个版本只放少量外链？</summary>
               <div class="faq-content">
@@ -914,7 +1177,7 @@
               </div>
             </details>
           </div>
-          <div class="faq-item">
+          <div class="faq-item" data-plan-faq="topup">
             <details>
               <summary>/go 中转页能完全隐藏外链吗？</summary>
               <div class="faq-content">
@@ -922,7 +1185,7 @@
               </div>
             </details>
           </div>
-          <div class="faq-item">
+          <div class="faq-item" data-plan-faq="lite">
             <details>
               <summary>这个模板上线前必须改什么？</summary>
               <div class="faq-content">
@@ -939,16 +1202,18 @@
         <div class="cta-band">
           <div>
             <span class="strip">下一步</span>
-            <h2 style="margin-top: 12px; font-size: clamp(28px, 4vw, 42px);">看完简版，再去主站看完整方案</h2>
-            <p>这个单页负责承接、解释和筛选高意图用户；真正更完整的渠道、教程和后续页面，可以继续放在主站。</p>
+            <h2 style="margin-top: 12px; font-size: clamp(28px, 4vw, 42px);">看完简版，直接打开当前更适合你的完整方案</h2>
+            <p id="cta-copy">这个单页负责承接、解释和筛选高意图用户；真正更完整的渠道、教程和后续页面，可以继续放在主站。</p>
+            <div class="cta-summary" id="cta-summary">当前聚焦：独享现号</div>
           </div>
           <div class="button-row" style="margin-top: 0;">
             <a
               class="button button-primary"
+              id="cta-primary"
               href="https://aiprostation.com/chatgpt-upgrade?from=github-pages-cta"
               target="_blank"
               rel="nofollow noopener noreferrer"
-            >打开主站专题</a>
+            >查看当前推荐方案</a>
             <a
               class="button button-secondary"
               href="https://aiprostation.com/?from=github-pages-home"
@@ -974,5 +1239,152 @@
       </div>
     </div>
   </footer>
+  <script>
+    const planConfig = {
+      owned: {
+        label: "默认推荐",
+        title: "独享现号",
+        price: "¥160-220 / 月",
+        keyword: "稳定、独享、少折腾",
+        copy: "适合希望拿到就用、直接进入工作状态的人群，稳定性和隐私通常更强。",
+        note: "如果你的目标是快速投入办公、避免共享记录，并且不想再花时间折腾环境，通常先看独享现号更顺。",
+        link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-owned",
+        ctaCopy: "如果你更看重稳定性、交付效率和独享环境，直接去主站看独享现号与 Plus/Pro 完整方案会更省时间。",
+        ctaSummary: "当前聚焦：独享现号"
+      },
+      shared: {
+        label: "低成本优先",
+        title: "合租共享",
+        price: "¥40-80 / 月",
+        keyword: "低预算、试水、共享",
+        copy: "适合先体验、预算敏感的用户，但需要接受记录和额度可能共享的现实。",
+        note: "合租适合先用起来，但一定要看售后规则、掉线情况、额度说明和是否允许更换环境。",
+        link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-shared",
+        ctaCopy: "如果你更关心价格门槛，先去主站看合租共享和轻量版的差异，再决定是否升级到独享。",
+        ctaSummary: "当前聚焦：合租共享"
+      },
+      topup: {
+        label: "保留老号",
+        title: "老号代充",
+        price: "¥130-180 / 次",
+        keyword: "保留记录、连续性、稳妥",
+        copy: "适合已经有老账号、想保留历史聊天记录和 GPT 配置的人，通常更适合长期工作流。",
+        note: "如果你担心迁移账号、丢失历史记录，老号代充通常比重买账号更适合现有工作流。",
+        link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-topup",
+        ctaCopy: "如果你最在意原有数据和 GPT 配置，主站里的老号代充说明会比普通购买页更值得先看。",
+        ctaSummary: "当前聚焦：老号代充"
+      },
+      lite: {
+        label: "轻度使用",
+        title: "轻量版方案",
+        price: "¥50-90 / 月",
+        keyword: "轻办公、低频、门槛低",
+        copy: "适合轻度提问和日常办公，成本压力更低，但能力上限不适合重度生产场景。",
+        note: "如果你只是偶尔用一下，先从轻量版切入更划算，等频率上来再升级通常更合理。",
+        link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-lite",
+        ctaCopy: "如果你只是偶尔使用，不妨先去主站看轻量方案和入门型套餐，避免一开始投入过高。",
+        ctaSummary: "当前聚焦：轻量版方案"
+      }
+    };
+
+    const planTriggers = document.querySelectorAll("[data-plan-trigger]");
+    const planCards = document.querySelectorAll("[data-plan-card]");
+    const planRows = document.querySelectorAll("[data-plan-row]");
+    const planDecisions = document.querySelectorAll("[data-plan-decision]");
+    const planFaqItems = document.querySelectorAll("[data-plan-faq]");
+    const navLinks = document.querySelectorAll(".nav a[href^='#']");
+
+    const currentPlanLabel = document.getElementById("current-plan-label");
+    const currentPlanTitle = document.getElementById("current-plan-title");
+    const currentPlanPrice = document.getElementById("current-plan-price");
+    const currentPlanKeyword = document.getElementById("current-plan-keyword");
+    const currentPlanCopy = document.getElementById("current-plan-copy");
+    const currentPlanLink = document.getElementById("current-plan-link");
+    const currentPlanNote = document.getElementById("current-plan-note");
+    const ctaPrimary = document.getElementById("cta-primary");
+    const ctaCopy = document.getElementById("cta-copy");
+    const ctaSummary = document.getElementById("cta-summary");
+
+    function activatePlan(planKey) {
+      const config = planConfig[planKey];
+      if (!config) return;
+
+      planTriggers.forEach((item) => {
+        item.classList.toggle("is-active", item.dataset.planTrigger === planKey);
+      });
+
+      planCards.forEach((item) => {
+        item.classList.toggle("is-active", item.dataset.planCard === planKey);
+      });
+
+      planRows.forEach((item) => {
+        item.classList.toggle("is-active", item.dataset.planRow === planKey);
+      });
+
+      planDecisions.forEach((item) => {
+        item.classList.toggle("is-active", item.dataset.planDecision === planKey);
+      });
+
+      planFaqItems.forEach((item) => {
+        const detail = item.querySelector("details");
+        const isActive = item.dataset.planFaq === planKey;
+        item.classList.toggle("is-active", isActive);
+        if (detail) {
+          detail.open = isActive;
+        }
+      });
+
+      currentPlanLabel.textContent = config.label;
+      currentPlanTitle.textContent = config.title;
+      currentPlanPrice.textContent = config.price;
+      currentPlanKeyword.textContent = config.keyword;
+      currentPlanCopy.textContent = config.copy;
+      currentPlanNote.textContent = config.note;
+      currentPlanLink.href = config.link;
+      currentPlanLink.textContent = "查看 " + config.title + " 完整方案";
+
+      ctaPrimary.href = config.link;
+      ctaPrimary.textContent = "查看 " + config.title + " 完整方案";
+      ctaCopy.textContent = config.ctaCopy;
+      ctaSummary.textContent = config.ctaSummary;
+    }
+
+    [...planTriggers, ...planCards, ...planDecisions].forEach((item) => {
+      item.addEventListener("click", () => {
+        const planKey = item.dataset.planTrigger || item.dataset.planCard || item.dataset.planDecision;
+        activatePlan(planKey);
+      });
+
+      item.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          const planKey = item.dataset.planTrigger || item.dataset.planCard || item.dataset.planDecision;
+          activatePlan(planKey);
+        }
+      });
+    });
+
+    const observedSections = ["compare", "recommend", "faq"]
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!visible) return;
+
+      navLinks.forEach((link) => {
+        link.classList.toggle("is-active", link.getAttribute("href") === "#" + visible.target.id);
+      });
+    }, {
+      rootMargin: "-25% 0px -55% 0px",
+      threshold: [0.2, 0.45, 0.7]
+    });
+
+    observedSections.forEach((section) => observer.observe(section));
+    activatePlan("owned");
+  </script>
 </body>
 </html>
