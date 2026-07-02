@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leon's Hub | 数字化项目与 AI 指南大本营</title>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 antialiased min-height-screen flex flex-col justify-between">
 
+    <!-- 导航栏 -->
+    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-md shadow-blue-200">L</div>
+                <span class="font-semibold text-lg tracking-tight">Leon's Hub</span>
+            </div>
+            <div class="flex items-center space-x-6 text-sm font-medium text-gray-600">
+                <a href="#projects" class="hover:text-blue-600 transition">核心项目</a>
+                <a href="https://github.com/leon-builds" target="_blank" class="hover:text-blue-600 transition flex items-center space-x-1">
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero 头部区域 -->
+    <header class="bg-white border-b border-gray-100 py-16 sm:py-24">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 mb-4 border border-blue-100">💻 Developer & Product Build</span>
+            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 sm:leading-tight">
+                探索最具价值的 <span class="text-blue-600">AI 工具与数字化指南</span>
+            </h1>
+            <p class="mt-4 text-lg text-gray-500 max-w-xl mx-auto leading-relaxed">
+                这里是 Leon 的数字化矩阵大本营。专注于沉淀高质量的 AI 订阅省钱方案、实用工具库以及独立项目出海探索。
+            </p>
+        </div>
+    </header>
+
+    <!-- 核心项目卡片区域 -->
+    <main id="projects" class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow w-full">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900">🚀 正在运营与维护的项目</h2>
+            <p class="mt-2 text-sm text-gray-500">点击卡片即可直达方案详情或服务入口</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            
+            <!-- 卡片 1: ChatGPT-Cheap -->
+            <a href="https://github.com/leon-builds/ChatGPT-Cheap" target="_blank" class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-green-50 rounded-xl text-green-600 group-hover:bg-green-100 transition">
+                            💰
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-green-50 text-green-700">开源指南</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">ChatGPT-Cheap</h3>
+                    <p class="mt-2 text-gray-500 text-sm leading-relaxed">
+                        全球最省钱的 ChatGPT Plus 订阅激活指南。实时追踪低价区价格异动（如菲律宾区），提供保姆级合规跨区内购教程。
+                    </p>
+                </div>
+                <div class="mt-6 flex items-center text-sm font-semibold text-blue-600">
+                    查看 GitHub 仓库 <span class="ml-1 transform group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </a>
+
+            <!-- 卡片 2: AI专业站 -->
+            <a href="#" class="group bg-white rounded-2xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-300 flex flex-col justify-between">
+                <div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-purple-50 rounded-xl text-purple-600 group-hover:bg-purple-100 transition">
+                            🤖
+                        </div>
+                        <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-purple-50 text-purple-700">一站式平台</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition">AI专业站</h3>
+                    <p class="mt-2 text-gray-500 text-sm leading-relaxed">
+                        聚合海外正规苹果礼品卡、AI 相关周边生态及多元开通方案的一站式综合导航平台，助你省时省心搞定多渠道升级。
+                    </p>
+                </div>
+                <div class="mt-6 flex items-center text-sm font-semibold text-blue-600">
+                    立即前往体验 <span class="ml-1 transform group-hover:translate-x-1 transition-transform">→</span>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-white border-t border-gray-100 py-8">
+        <div class="max-w-5xl mx-auto px-4 text-center text-xs text-gray-400 space-y-2">
+            <p>© 2026 Leon's Hub. Powered by GitHub Pages.</p>
+            <p>基于开放互联精神构建，所有指南均遵循合规安全原则。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
