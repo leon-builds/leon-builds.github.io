@@ -166,13 +166,13 @@
     }
 
     .hero {
-      padding: 72px 0 40px;
+      padding: 24px 0 12px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.78fr);
+      gap: 16px;
       align-items: stretch;
     }
 
@@ -188,8 +188,8 @@
     }
 
     .hero-copy {
-      border-radius: 34px;
-      padding: 40px;
+      border-radius: 28px;
+      padding: 22px;
       position: relative;
       overflow: hidden;
     }
@@ -224,10 +224,30 @@
     }
 
     h1 {
-      margin-top: 22px;
-      font-size: clamp(40px, 5.4vw, 68px);
-      max-width: 8.5ch;
-      text-wrap: balance;
+      margin-top: 14px;
+      font-size: clamp(26px, 3.4vw, 40px);
+      max-width: none;
+      line-height: 1.14;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-title {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: flex-start;
+    }
+
+    .hero-title-top {
+      display: block;
+    }
+
+    .hero-title-main {
+      display: block;
+    }
+
+    .hero-title-main .title-accent {
+      margin-right: 0.18em;
     }
 
     .title-accent {
@@ -235,9 +255,9 @@
     }
 
     .hero-copy p {
-      margin: 22px 0 0;
-      max-width: 58ch;
-      font-size: 17px;
+      margin: 12px 0 0;
+      max-width: 50ch;
+      font-size: 14px;
       color: var(--muted);
     }
 
@@ -245,7 +265,7 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-top: 28px;
+      margin-top: 16px;
     }
 
     .button {
@@ -277,44 +297,19 @@
       border-color: var(--line-strong);
     }
 
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 34px;
-    }
-
-    .hero-meta div {
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
-    }
-
-    .hero-meta strong {
-      display: block;
-      font-size: 13px;
-      color: var(--muted);
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .hero-meta span {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
     .hero-panel {
-      border-radius: 34px;
-      padding: 28px;
+      border-radius: 28px;
+      padding: 18px;
       display: grid;
-      gap: 18px;
+      gap: 12px;
       align-content: start;
     }
 
     .plan-switcher {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 26px;
+      gap: 8px;
+      margin-top: 14px;
     }
 
     .plan-chip {
@@ -323,8 +318,8 @@
       justify-content: space-between;
       gap: 10px;
       width: 100%;
-      padding: 14px 16px;
-      border-radius: 18px;
+      padding: 12px 14px;
+      border-radius: 16px;
       border: 1px solid var(--line);
       background: rgba(255, 255, 255, 0.68);
       color: var(--ink);
@@ -360,12 +355,12 @@
 
     .panel-head small {
       color: var(--muted);
-      font-size: 13px;
+      font-size: 12px;
     }
 
     .signal-card {
       border-radius: 24px;
-      padding: 18px;
+      padding: 16px;
       background: rgba(255, 255, 255, 0.72);
       border: 1px solid rgba(20, 33, 47, 0.08);
     }
@@ -395,14 +390,14 @@
     }
 
     .recommend-card {
-      border-radius: 26px;
-      padding: 22px;
+      border-radius: 22px;
+      padding: 16px;
       background: linear-gradient(180deg, rgba(20, 33, 47, 0.96), rgba(20, 33, 47, 0.88));
       color: rgba(255, 255, 255, 0.9);
     }
 
     .recommend-card h3 {
-      font-size: 28px;
+      font-size: 22px;
       color: #ffffff;
     }
 
@@ -438,12 +433,6 @@
       margin: 14px 0 0;
       color: rgba(255, 255, 255, 0.72);
       font-size: 14px;
-    }
-
-    .mini-note {
-      margin-top: 12px;
-      color: var(--muted);
-      font-size: 13px;
     }
 
     section {
@@ -780,10 +769,6 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .hero-meta {
-        grid-template-columns: 1fr;
-      }
-
       .footer-links {
         justify-content: flex-start;
       }
@@ -803,11 +788,15 @@
 
       h1 {
         max-width: none;
-        font-size: clamp(36px, 12vw, 56px);
+        font-size: clamp(24px, 7vw, 34px);
+      }
+
+      .hero-title {
+        gap: 4px;
       }
 
       .hero {
-        padding-top: 42px;
+        padding-top: 16px;
       }
 
       .hero-copy,
@@ -890,7 +879,7 @@
         <a href="#compare">方案对比</a>
         <a href="#recommend">按需求选</a>
         <a href="#faq">常见问题</a>
-        <a href="https://aiprostation.com/chatgpt-upgrade?from=github-pages" target="_blank" rel="nofollow noopener noreferrer">主站完整版</a>
+        <a href="https://aiprostation.com/chatgpt-upgrade?from=github-pages" target="_blank" rel="nofollow noopener noreferrer">完整指南</a>
       </nav>
     </div>
   </header>
@@ -899,11 +888,14 @@
     <section class="hero">
       <div class="shell hero-grid">
         <article class="hero-copy">
-          <span class="eyebrow">GitHub Pages 差异化版本 · 更适合长尾承接</span>
-          <h1>ChatGPT Plus 购买，<span class="title-accent">独享、合租还是代充</span>，到底怎么选更稳？</h1>
+          <span class="eyebrow">2026 购买参考</span>
+          <h1 class="hero-title">
+            <span class="hero-title-top">ChatGPT Plus 购买</span>
+            <span class="hero-title-main"><span class="title-accent">独享、合租</span>还是代充怎么选？</span>
+          </h1>
           <p>
-            这不是一个“只想让你立刻跳走”的桥页，而是一份适合搜索用户快速读懂的简版决策页。
-            如果你只想弄清楚预算、稳定性、隐私和风险差异，这一页就够看；如果你想看更完整的渠道与教程，再去主站继续。
+            如果你现在主要纠结价格、稳定性、隐私和售后差异，这一页先帮你快速看明白。
+            先按自己的需求选，再看哪种开通方式更适合你。
           </p>
           <div class="plan-switcher" aria-label="需求快捷选择">
             <button class="plan-chip is-active" type="button" data-plan-trigger="owned">
@@ -924,40 +916,20 @@
             </button>
           </div>
           <div class="button-row">
-            <a class="button button-primary" href="#compare" data-role="primary-jump">先看方案差异</a>
-            <a
-              class="button button-secondary"
-              href="https://aiprostation.com/chatgpt-upgrade?from=github-pages-hero"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-            >查看主站完整版</a>
-          </div>
-          <div class="hero-meta">
-            <div>
-              <strong>适合承接</strong>
-              <span>长尾搜索</span>
-            </div>
-            <div>
-              <strong>页面定位</strong>
-              <span>内容型单页</span>
-            </div>
-            <div>
-              <strong>推荐动作</strong>
-              <span>少量自然导流</span>
-            </div>
+            <a class="button button-primary" href="#compare" data-role="primary-jump">查看适合我的方案</a>
           </div>
         </article>
 
         <aside class="hero-panel" aria-label="页面策略摘要">
           <div class="panel-head">
             <div>
-              <div class="strip">当前推荐</div>
-              <h2 style="margin-top: 14px; font-size: 34px;">先选需求，再看最适合你的路线</h2>
+              <div class="strip">选购建议</div>
+              <h2 style="margin-top: 8px; font-size: 24px;">先按使用场景快速筛选</h2>
             </div>
-            <small>2026 版</small>
+            <small>实时参考</small>
           </div>
           <div class="recommend-card">
-            <div class="strip" id="current-plan-label">默认推荐</div>
+            <div class="strip" id="current-plan-label">推荐方案</div>
             <h3 id="current-plan-title" style="margin-top: 14px;">独享现号</h3>
             <p class="recommend-copy" id="current-plan-copy">适合希望拿到就用、直接进入工作状态的人群，稳定性和隐私通常更强。</p>
             <div class="recommend-meta">
@@ -977,19 +949,11 @@
                 href="https://aiprostation.com/chatgpt-upgrade?from=github-pages-owned"
                 target="_blank"
                 rel="nofollow noopener noreferrer"
-              >查看当前推荐方案</a>
+              >查看这个方案</a>
             </div>
           </div>
-          <div class="signal-card">
-            <strong>主流前端常见设计</strong>
-            <p>让首屏选择器、方案卡片、对比表、CTA 和 FAQ 共用同一个当前状态，而不是每个模块各自独立。</p>
-          </div>
-          <div class="signal-card">
-            <strong>为什么这种联动更顺</strong>
-            <p>用户点一次“我是这类需求”，页面其他区域会一起响应，不用自己在长页面里重新寻找答案。</p>
-          </div>
           <div class="muted-box" id="current-plan-note">
-            你发布到 GitHub Pages 后，记得把本页中的 `yourname.github.io` 和主站链接参数换成你自己的实际地址。
+            价格会随渠道、付款方式和交付规则变化，最终以实时页说明为准。
           </div>
         </aside>
       </div>
@@ -1002,7 +966,7 @@
             <span class="strip">先看核心差异</span>
             <h2 style="margin-top: 12px; font-size: clamp(30px, 4.4vw, 48px);">四种常见开通路线</h2>
           </div>
-          <p>这部分尽量写成真正有用的信息，不要只堆销售话术。搜索引擎更愿意收录一个能回答问题的页面，而不是一个只有跳转按钮的桥页。</p>
+          <p>把常见路线放在一起看，先看适合谁，再看预算和风险点，会比单独看某个入口更容易做判断。</p>
         </div>
 
         <div class="card-grid">
@@ -1117,7 +1081,7 @@
             <span class="strip">从场景反推选择</span>
             <h2 style="margin-top: 12px; font-size: clamp(30px, 4vw, 46px);">如果你是这几类用户</h2>
           </div>
-          <p>这一块是 GitHub Pages 版最值得保留的内容，因为它比单纯价格页更像“问题答案”，更适合承接搜索意图。</p>
+          <p>如果你还没想清楚该选哪种，不妨先按自己的使用场景看，通常会比只盯价格更接近正确选择。</p>
         </div>
 
         <div class="decision-grid">
@@ -1157,39 +1121,39 @@
             <span class="strip">FAQ</span>
             <h2 style="margin-top: 12px; font-size: clamp(30px, 4vw, 46px);">常见问题</h2>
           </div>
-          <p>FAQ 既能补足搜索覆盖，也能降低用户对“这是纯跳转页”的判断。</p>
+          <p>下面几个问题是购买前最容易踩坑的点，先看完再决定，通常能少走很多弯路。</p>
         </div>
 
         <div class="faq-wrap">
           <div class="faq-item" data-plan-faq="owned">
             <details open>
-              <summary>GitHub Pages 的单页真的能做 SEO 吗？</summary>
+              <summary>独享现号适合什么人？</summary>
               <div class="faq-content">
-                能，但更适合做细分主题和长尾问题页，不适合把主站页面原样复制过去。要想更稳，必须改写标题、结构、问题角度和 CTA 密度。
+                如果你希望拿到就用、尽快投入办公或创作，并且不想承担共享记录和额度问题，独享现号通常更省心。
               </div>
             </details>
           </div>
           <div class="faq-item" data-plan-faq="shared">
             <details>
-              <summary>为什么这个版本只放少量外链？</summary>
+              <summary>合租共享为什么便宜这么多？</summary>
               <div class="faq-content">
-                因为内容页本身需要具备阅读价值。太多外链或太强的导流痕迹，会削弱页面的独立性，也更容易被识别为桥页。
+                因为本质上是多人分摊成本，所以价格更低。但对应的限制往往也更多，比如额度、记录、登录环境或售后边界。
               </div>
             </details>
           </div>
           <div class="faq-item" data-plan-faq="topup">
             <details>
-              <summary>/go 中转页能完全隐藏外链吗？</summary>
+              <summary>老号代充最大的优势是什么？</summary>
               <div class="faq-content">
-                不能保证。搜索引擎仍可能识别跳转关系，所以更推荐把中转当成运营链路，而不是 SEO 保护伞。内容页的主要任务仍是回答问题。
+                最大优势通常是保留你原有的聊天记录、GPT 配置和使用习惯，适合已经把账号当成长期工作流一部分的人。
               </div>
             </details>
           </div>
           <div class="faq-item" data-plan-faq="lite">
             <details>
-              <summary>这个模板上线前必须改什么？</summary>
+              <summary>轻量版方案值不值得先试？</summary>
               <div class="faq-content">
-                至少要改 `title`、`description`、`canonical`、`og:url`、结构化数据 URL 和主站跳转地址；如果你用了自定义域名，还要同步改成你的正式域名。
+                如果你只是轻度提问、偶尔办公或暂时不确定是否会高频使用，先用轻量版通常更划算，后面再决定是否升级。
               </div>
             </details>
           </div>
@@ -1203,7 +1167,7 @@
           <div>
             <span class="strip">下一步</span>
             <h2 style="margin-top: 12px; font-size: clamp(28px, 4vw, 42px);">看完简版，直接打开当前更适合你的完整方案</h2>
-            <p id="cta-copy">这个单页负责承接、解释和筛选高意图用户；真正更完整的渠道、教程和后续页面，可以继续放在主站。</p>
+            <p id="cta-copy">先从更适合自己的方案看起，比盲目追最低价更容易买到稳定、省心的版本。</p>
             <div class="cta-summary" id="cta-summary">当前聚焦：独享现号</div>
           </div>
           <div class="button-row" style="margin-top: 0;">
@@ -1219,7 +1183,7 @@
               href="https://aiprostation.com/?from=github-pages-home"
               target="_blank"
               rel="nofollow noopener noreferrer"
-            >访问首页</a>
+            >查看更多方案</a>
           </div>
         </div>
       </div>
@@ -1229,12 +1193,12 @@
   <footer>
     <div class="shell footer-grid">
       <div>
-        <strong style="display: block; color: var(--ink); margin-bottom: 6px;">发布提示</strong>
-        本页为 GitHub Pages 单页模板示例，适合做差异化内容承接。上线前请替换域名、规范元信息，并检查所有对外链接是否符合你的实际投放路径。
+        <strong style="display: block; color: var(--ink); margin-bottom: 6px;">温馨提示</strong>
+        开通方式没有绝对最好，关键是看你的预算、使用频率、隐私要求和是否需要保留原账号记录。
       </div>
       <div class="footer-links">
         <a href="#top">回到顶部</a>
-        <a href="https://aiprostation.com/chatgpt-upgrade?from=github-pages-footer" target="_blank" rel="nofollow noopener noreferrer">主站专题</a>
+        <a href="https://aiprostation.com/chatgpt-upgrade?from=github-pages-footer" target="_blank" rel="nofollow noopener noreferrer">购买指南</a>
         <a href="https://aiprostation.com/terms" target="_blank" rel="nofollow noopener noreferrer">服务条款</a>
       </div>
     </div>
@@ -1249,7 +1213,7 @@
         copy: "适合希望拿到就用、直接进入工作状态的人群，稳定性和隐私通常更强。",
         note: "如果你的目标是快速投入办公、避免共享记录，并且不想再花时间折腾环境，通常先看独享现号更顺。",
         link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-owned",
-        ctaCopy: "如果你更看重稳定性、交付效率和独享环境，直接去主站看独享现号与 Plus/Pro 完整方案会更省时间。",
+        ctaCopy: "如果你更看重稳定性、交付效率和独享环境，建议继续看独享现号与 Plus/Pro 的完整说明。",
         ctaSummary: "当前聚焦：独享现号"
       },
       shared: {
@@ -1260,7 +1224,7 @@
         copy: "适合先体验、预算敏感的用户，但需要接受记录和额度可能共享的现实。",
         note: "合租适合先用起来，但一定要看售后规则、掉线情况、额度说明和是否允许更换环境。",
         link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-shared",
-        ctaCopy: "如果你更关心价格门槛，先去主站看合租共享和轻量版的差异，再决定是否升级到独享。",
+        ctaCopy: "如果你更关心价格门槛，建议先看合租共享和轻量版的差异，再决定是否升级到独享。",
         ctaSummary: "当前聚焦：合租共享"
       },
       topup: {
@@ -1271,7 +1235,7 @@
         copy: "适合已经有老账号、想保留历史聊天记录和 GPT 配置的人，通常更适合长期工作流。",
         note: "如果你担心迁移账号、丢失历史记录，老号代充通常比重买账号更适合现有工作流。",
         link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-topup",
-        ctaCopy: "如果你最在意原有数据和 GPT 配置，主站里的老号代充说明会比普通购买页更值得先看。",
+        ctaCopy: "如果你最在意原有数据和 GPT 配置，建议优先看老号代充的完整说明。",
         ctaSummary: "当前聚焦：老号代充"
       },
       lite: {
@@ -1282,7 +1246,7 @@
         copy: "适合轻度提问和日常办公，成本压力更低，但能力上限不适合重度生产场景。",
         note: "如果你只是偶尔用一下，先从轻量版切入更划算，等频率上来再升级通常更合理。",
         link: "https://aiprostation.com/chatgpt-upgrade?from=github-pages-lite",
-        ctaCopy: "如果你只是偶尔使用，不妨先去主站看轻量方案和入门型套餐，避免一开始投入过高。",
+        ctaCopy: "如果你只是偶尔使用，不妨先看轻量方案和入门型套餐，避免一开始投入过高。",
         ctaSummary: "当前聚焦：轻量版方案"
       }
     };
